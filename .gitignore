@@ -1,0 +1,5 @@
+node_modules/
+.parcel-cache/
+# dist/ is intentionally versioned: LiaScript loads dist/index.js directly.
+contact-sheet.html
+.playwright-mcp/

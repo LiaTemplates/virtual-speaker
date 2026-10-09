@@ -1,0 +1,43 @@
+{
+  "name": "lia-virtual-speaker",
+  "version": "0.1.0",
+  "description": "LiaScript template: animated DiceBear avatars as narrators of the text-to-speech and audio comments",
+  "app": "dist/index.js",
+  "targets": {
+    "app": {
+      "source": "src/index.ts",
+      "context": "browser",
+      "outputFormat": "global",
+      "includeNodeModules": true,
+      "sourceMap": false
+    }
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
+  "browserslist": [
+    "last 2 years",
+    "not dead"
+  ],
+  "scripts": {
+    "build": "parcel build --target app --no-cache",
+    "watch": "parcel watch --target app",
+    "test": "vitest run",
+    "typecheck": "tsc -p .",
+    "contact-sheet": "node scripts/contact-sheet.mts",
+    "serve": "npx @liascript/devserver --input README.md --port 3000 --live"
+  },
+  "author": "André Dietrich <LiaScript@web.de>",
+  "license": "MIT",
+  "dependencies": {
+    "@dicebear/collection": "^9.4.2",
+    "@dicebear/core": "^9.4.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.16.4",
+    "@types/node": "^26.6.4",
+    "parcel": "^2.16.4",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

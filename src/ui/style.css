@@ -1,0 +1,104 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--virtual-speaker-background, #dfe7ef);
+}
+
+/*
+ * stage (background) > head (looking around) > body (breathing, nodding)
+ * > images
+ *
+ * The background of the avatar is painted by the stage, which does not move,
+ * the transparent images move in front of it. All movements pivot around the
+ * bottom center, thus the lower edge of the body (neck, shoulders) never
+ * moves up into the visible circle.
+ */
+.stage,
+.head,
+.body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.head {
+  transform-origin: 50% 100%;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.look-left .head {
+  transform: translateX(-2.5%) rotate(-4deg);
+}
+
+.look-right .head {
+  transform: translateX(2.5%) rotate(4deg);
+}
+
+.look-up .head {
+  transform: rotate(-1.5deg) scaleY(1.01);
+}
+
+.body {
+  transform-origin: 50% 100%;
+  animation: breathe 4.5s ease-in-out infinite;
+}
+
+.body img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* the overlay can be resized to an ellipse, the body stays at the bottom */
+  object-position: 50% 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.body img[hidden] {
+  display: none;
+}
+
+.speaking .body {
+  animation: nod 1.6s ease-in-out infinite;
+}
+
+/* styles without mouth variants bob a little more while speaking */
+.speaking.no-mouth .body {
+  animation: bob 0.5s ease-in-out infinite;
+}
+
+.paused .body {
+  animation-play-state: paused;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+
+@keyframes nod {
+  0%, 100% { transform: rotate(0) scaleY(1); }
+  30% { transform: rotate(-0.8deg) scaleY(1.012); }
+  60% { transform: rotate(0.5deg) scaleY(0.996); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.035); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .head {
+    transition: none;
+  }
+
+  .body,
+  .speaking .body,
+  .speaking.no-mouth .body {
+    animation: none;
+  }
+}
