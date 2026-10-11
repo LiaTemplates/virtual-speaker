@@ -1,6 +1,7 @@
 import { preview, styles } from './avatar'
 import { LiaDicebearAvatar, TAG } from './element'
-import { config, define, type Config, type SpeakerDef } from './speakers'
+import { PRESETS } from './presets'
+import { config, define, resolve, type Config, type SpeakerDef } from './speakers'
 
 const VirtualSpeaker = {
   /** the custom element, LiaScript shows within the narrator overlay */
@@ -15,9 +16,15 @@ const VirtualSpeaker = {
   /** all available DiceBear styles */
   styles,
 
-  /** the resting face of a speaker as data URI */
-  preview(style: string, seed: string, options?: Record<string, unknown>) {
-    return preview({ style, seed, options })
+  /** the ids of all predefined speakers, e.g. `albert-einstein` */
+  presets() {
+    return Object.keys(PRESETS)
+  },
+
+  /** the resting face of a speaker as data URI, either a DiceBear style and
+   * seed, or only the id of a named speaker, e.g. `preview('confucius')` */
+  preview(style: string, seed?: string, options?: Record<string, unknown>) {
+    return preview(seed === undefined ? resolve({ speaker: style }) : { style, seed, options })
   },
 
   /** show the avatar again, after `disable()` */

@@ -1,6 +1,7 @@
 import * as collection from '@dicebear/collection'
 import { createAvatar } from '@dicebear/core'
 import { FACES, type Look } from './faces'
+import { applyPatterns, toDataUri } from './patterns'
 import type { SpeakerDef } from './speakers'
 
 const STYLES = collection as unknown as Record<string, any>
@@ -63,7 +64,14 @@ export function render(speaker: SpeakerDef): Frames {
  */
 export function preview(speaker: SpeakerDef): string {
   const { style, options } = prepare(speaker)
-  return createAvatar(style, options).toDataUri()
+  return image(speaker, createAvatar(style, options))
+}
+
+/** the avatar as data URI, with patterns if the speaker defines them */
+function image(speaker: SpeakerDef, avatar: { toString(): string; toDataUri(): string }) {
+  return speaker.patterns
+    ? toDataUri(applyPatterns(avatar.toString(), speaker.patterns))
+    : avatar.toDataUri()
 }
 
 function prepare(speaker: SpeakerDef) {
@@ -121,7 +129,7 @@ function create(speaker: SpeakerDef): Frames {
 
     const eyeOptions = value ? { eyes: [value], eyesProbability: 100 } : {}
     faces[state] = mouths.map((m) =>
-      createAvatar(style, { ...options, ...eyeOptions, ...m }).toDataUri()
+      image(speaker, createAvatar(style, { ...options, ...eyeOptions, ...m }))
     )
   }
 

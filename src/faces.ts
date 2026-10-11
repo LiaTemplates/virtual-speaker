@@ -48,8 +48,8 @@ const adventurer: Face = {
 const avataaars: Face = {
   mouth: {
     key: 'mouth',
-    open: ['screamOpen', 'disbelief'],
-    closed: ['default', 'smile', 'serious', 'twinkle', 'concerned'],
+    open: ['default', 'disbelief'],
+    closed: ['twinkle', 'smile', 'serious'],
   },
   eyes: {
     open: ['default', 'squint', 'surprised'],

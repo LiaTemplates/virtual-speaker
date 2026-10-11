@@ -3,7 +3,7 @@ author:   André Dietrich
 email:    LiaScript@web.de
 version:  0.1.0
 language: en
-narrator: US English Female
+narrator: US English Male
 
 comment:  Animated DiceBear avatars as narrators: while LiaScript reads the
           comments aloud, by text-to-speech or from audio recordings, the
@@ -20,22 +20,13 @@ attribute: [DiceBear](https://www.dicebear.com) by Florian Körner is licensed
 @VirtualSpeaker.speaker: <!-- data-speaker="@0" -->
 
 @VirtualSpeaker.dicebear: <!-- data-speaker-style="@0" data-speaker-seed="@1" -->
-
-@onload
-window.VirtualSpeakerConfig = {
-  default:  { style: 'lorelei', seed: 'Mika', name: 'Mika' },
-  speakers: {
-    anna: { style: 'micah', seed: 'Anna', name: 'Anna' },
-    'US English Male': { style: 'avataaars', seed: 'Felix', name: 'Felix' }
-  }
-}
-@end
 -->
 
 # Virtual Speaker
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
-Hello, I am Mika, the virtual speaker of this course. Whenever LiaScript reads
+Hello, I am André, the virtual speaker of this course. Whenever LiaScript reads
 a comment aloud, I move my lips. You can drag me around and resize me, just
 like the video comments.
 
@@ -65,9 +56,11 @@ or use a fixed version:
 
 ## The default speaker
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 Without further configuration, every comment is spoken by the default speaker.
-This course uses Mika, drawn in the lorelei style.
+In this course I am put in front of every comment with the speaker macro
+instead, the warning below explains why.
 
 The default speaker is defined once in the header of your course, by an
 `@onload` script:
@@ -89,6 +82,12 @@ window.VirtualSpeakerConfig = {
 > the configuration is assigned to `window.VirtualSpeakerConfig`, which is
 > picked up in either case.
 
+> [!WARNING]
+> Configure speakers only in courses, not in the header of a template. The
+> `@onload` of a template is also executed by every course that imports it
+> and would override its configuration. That is why this course does not
+> define a default speaker.
+
 * `style`: one of the [DiceBear styles](https://www.dicebear.com/styles/),
   e.g. `avataaars`, `lorelei`, `micah`, `adventurer`, `bottts`, `notionists`,
   `big-smile`, `personas`, `fun-emoji`, `pixel-art`, …
@@ -96,27 +95,38 @@ window.VirtualSpeakerConfig = {
 * `options`: further [DiceBear options](https://www.dicebear.com/how-to-use/js-library/)
   of the style, such as `{ hair: ['long20'], backgroundColor: ['b6e3f4'] }`
 * `name`: shown as tooltip
+* `patterns`: replaces a color of the options by a pattern, which DiceBear
+  does not offer, e.g. a checkered shirt:
+
+  ``` js
+  { style: 'avataaars', seed: 'André',
+    options:  { clothing: ['collarAndSweater'], clothesColor: ['010203'] },
+    patterns: { '010203': 'plaid-blue' } }   // plaid-red, plaid-green
+  ```
+
+  `{ '010203': { name: 'plaid-blue', rotate: 45 } }` rotates the pattern.
 
 Without any configuration the avatar is drawn in the `avataaars` style and the
 narrator voice is used as seed, such that different voices look different.
 
 ## Changing the speaker
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
-I am still Mika, but listen to the next comment.
+I am still André, but listen to the next comment.
 
     @VirtualSpeaker.speaker(anna)
     --{{1 UK English Female}}--
 Hi, I am Anna. My name was put in front of this comment with the speaker
-macro, so you see me instead of Mika.
+macro, so you see me instead of André.
 
     @VirtualSpeaker.dicebear(bottts,R2)
     --{{2 US English Male}}--
 Beep. I am a robot, created on the fly with the dicebear macro.
 
-    --{{3 US English Male}}--
+    --{{3 UK English Male}}--
 And I am Felix. Nobody announced me, but I have been registered for the voice
-US English Male.
+UK English Male.
 
 Put one of the following macros directly in front of a narrator comment:
 
@@ -127,7 +137,20 @@ Put one of the following macros directly in front of a narrator comment:
   any configuration.
 
 Speakers can also be registered for a narrator voice, such as
-`'US English Male'`, then all comments with this voice get this face.
+`'UK English Male'`, then all comments with this voice get this face. On this
+slide, Anna and Felix are defined by a small script:
+
+``` html
+<script style="display: none">
+VirtualSpeaker.define('anna', { style: 'micah', seed: 'Anna', name: 'Anna' })
+VirtualSpeaker.define('UK English Male', { style: 'avataaars', seed: 'Felix', name: 'Felix' })
+</script>
+```
+
+<script style="display: none">
+VirtualSpeaker.define('anna', { style: 'micah', seed: 'Anna', name: 'Anna' })
+VirtualSpeaker.define('UK English Male', { style: 'avataaars', seed: 'Felix', name: 'Felix' })
+</script>
 
 ``` markdown
     @VirtualSpeaker.speaker(anna)
@@ -146,10 +169,173 @@ Beep. I am a robot.
 > R2 (style `bottts`)
 
           {{3}}
-> Felix (style `avataaars`, voice `US English Male`)
+> Felix (style `avataaars`, voice `UK English Male`)
+
+## Predefined speakers
+
+    @VirtualSpeaker.speaker(andre-dietrich)
+    --{{0 US English Male}}--
+You already know me, I am André, and I am already part of this template. So
+you can invite me to your course without any configuration.
+
+    @VirtualSpeaker.speaker(sebastian-zug)
+    --{{1 US English Male}}--
+And I am Sebastian. Just like André, I am predefined in this template.
+
+Some speakers are already defined in this template and can be used directly:
+
+| Id               | Name           | Style       |
+| ---------------- | -------------- | ----------- |
+| `andre-dietrich` | André Dietrich | `avataaars` |
+| `sebastian-zug`  | Sebastian Zug  | `avataaars` |
+
+``` markdown
+    @VirtualSpeaker.speaker(andre-dietrich)
+    --{{0}}--
+Hi, I am André.
+```
+
+A predefined speaker can also be the default speaker of your course:
+
+``` html
+<!--
+@onload
+window.VirtualSpeakerConfig = { default: 'andre-dietrich' }
+@end
+-->
+```
+
+> Want to add yourself? Speakers are defined in `src/presets.ts`, please only
+> add living people who agreed to it. Historical figures are collected in
+> `src/famous.ts`.
+
+## Famous people
+
+    @VirtualSpeaker.speaker(andre-dietrich)
+    --{{0}}--
+Some famous guests from all continents have joined this template. Step through
+this slide and let them introduce themselves.
+
+    @VirtualSpeaker.speaker(albert-einstein)
+    --{{1 US English Male}}--
+Hello, I am Albert Einstein. Imagination is more important than knowledge,
+so let us explore space and time together.
+
+    @VirtualSpeaker.speaker(confucius)
+    --{{2 UK English Male}}--
+I am Confucius, a teacher from ancient China. Learning without thinking is
+useless, thinking without learning is dangerous.
+
+    @VirtualSpeaker.speaker(wangari-maathai)
+    --{{3 UK English Female}}--
+I am Wangari Maathai from Kenya. Together with many women, I planted millions
+of trees. Every small step counts.
+
+    @VirtualSpeaker.speaker(frida-kahlo)
+    --{{4 US English Female}}--
+I am Frida Kahlo, a painter from Mexico. I painted my own reality, and you can
+paint yours.
+
+    @VirtualSpeaker.speaker(alberto-santos-dumont)
+    --{{5 US English Male}}--
+I am Alberto Santos-Dumont from Brazil, one of the first people to fly an
+airplane. Look up, the sky is not the limit.
+
+    @VirtualSpeaker.speaker(david-unaipon)
+    --{{6 Australian Male}}--
+I am David Unaipon, a Ngarrindjeri inventor and writer from Australia. You can
+find me on the fifty dollar note.
+
+    @VirtualSpeaker.speaker(roald-amundsen)
+    --{{7 UK English Male}}--
+I am Roald Amundsen. In 1911, my team was the first to reach the South Pole.
+Do not forget your warm hat.
+
+These historical figures are predefined and can be used like any other
+speaker, e.g. as guests in a history, science or literature course:
+
+``` markdown
+    @VirtualSpeaker.speaker(marie-curie)
+    --{{0}}--
+I am Marie Curie, and I won two Nobel Prizes.
+```
+
+| Id                           | Name                       | Lifetime          | Known for                                       | Continent (country)          | Style        | More                                                                                |
+| ---------------------------- | -------------------------- | ----------------- | ----------------------------------------------- | ---------------------------- | ------------ | ----------------------------------------------------------------------------------- |
+| `albert-einstein`            | Albert Einstein            | 1879–1955         | theory of relativity                            | Europe (Germany)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Albert_Einstein)                          |
+| `isaac-newton`               | Isaac Newton               | 1643–1727         | gravitation, laws of motion                     | Europe (England)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Isaac_Newton)                             |
+| `marie-curie`                | Marie Curie                | 1867–1934         | radioactivity, two Nobel Prizes                 | Europe (Poland, France)      | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Marie_Curie)                              |
+| `johann-wolfgang-von-goethe` | Johann Wolfgang von Goethe | 1749–1832         | poet, _Faust_                                   | Europe (Germany)             | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe)               |
+| `friedrich-schiller`         | Friedrich Schiller         | 1759–1805         | poet, _Ode to Joy_                              | Europe (Germany)             | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Friedrich_Schiller)                       |
+| `leonardo-da-vinci`          | Leonardo da Vinci          | 1452–1519         | painter, inventor, _Mona Lisa_                  | Europe (Italy)               | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Leonardo_da_Vinci)                        |
+| `ada-lovelace`               | Ada Lovelace               | 1815–1852         | first computer program                          | Europe (England)             | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Ada_Lovelace)                             |
+| `charles-darwin`             | Charles Darwin             | 1809–1882         | theory of evolution                             | Europe (England)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Charles_Darwin)                           |
+| `galileo-galilei`            | Galileo Galilei            | 1564–1642         | astronomy, telescope                            | Europe (Italy)               | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Galileo_Galilei)                          |
+| `christopher-columbus`       | Christopher Columbus       | 1451–1506         | voyages to the Americas, 1492                   | Europe (Genoa, Spain)        | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Christopher_Columbus)                     |
+| `wolfgang-amadeus-mozart`    | Wolfgang Amadeus Mozart    | 1756–1791         | composer                                        | Europe (Austria)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart)                  |
+| `sophie-scholl`              | Sophie Scholl              | 1921–1943         | resistance against the Nazis, White Rose        | Europe (Germany)             | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Sophie_Scholl)                            |
+| `emmy-noether`               | Emmy Noether               | 1882–1935         | mathematics, Noether's theorem                  | Europe (Germany)             | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Emmy_Noether)                             |
+| `confucius`                  | Confucius                  | 551–479 BC        | philosopher and teacher                         | Asia (China)                 | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Confucius)                                |
+| `mahatma-gandhi`             | Mahatma Gandhi             | 1869–1948         | non-violent independence movement               | Asia (India)                 | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Mahatma_Gandhi)                           |
+| `murasaki-shikibu`           | Murasaki Shikibu           | c. 973–c. 1014    | novelist, _The Tale of Genji_                   | Asia (Japan)                 | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Murasaki_Shikibu)                         |
+| `srinivasa-ramanujan`        | Srinivasa Ramanujan        | 1887–1920         | mathematics, number theory                      | Asia (India)                 | `notionists` | [Wikipedia](https://en.wikipedia.org/wiki/Srinivasa_Ramanujan)                      |
+| `ibn-sina`                   | Ibn Sina (Avicenna)        | c. 980–1037       | medicine, philosophy                            | Asia (Persia)                | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Avicenna)                                 |
+| `zheng-he`                   | Zheng He                   | 1371–1433         | admiral, treasure voyages                       | Asia (China)                 | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Zheng_He)                                 |
+| `rabindranath-tagore`        | Rabindranath Tagore        | 1861–1941         | poet, Nobel Prize in Literature                 | Asia (India)                 | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Rabindranath_Tagore)                      |
+| `al-khwarizmi`               | Al-Khwarizmi               | c. 780–c. 850     | algebra, the word "algorithm"                   | Asia (Persia, Baghdad)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Al-Khwarizmi)                             |
+| `nelson-mandela`             | Nelson Mandela             | 1918–2013         | end of apartheid, president                     | Africa (South Africa)        | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Nelson_Mandela)                           |
+| `wangari-maathai`            | Wangari Maathai            | 1940–2011         | Green Belt Movement, Nobel Peace Prize          | Africa (Kenya)               | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Wangari_Maathai)                          |
+| `hypatia`                    | Hypatia                    | c. 360–415        | mathematics, astronomy                          | Africa (Alexandria, Egypt)   | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Hypatia)                                  |
+| `mansa-musa`                 | Mansa Musa                 | c. 1280–c. 1337   | ruler of the Mali Empire, Timbuktu              | Africa (Mali)                | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Mansa_Musa)                               |
+| `ibn-battuta`                | Ibn Battuta                | 1304–1368/69      | traveller, _Rihla_                              | Africa (Morocco)             | `notionists` | [Wikipedia](https://en.wikipedia.org/wiki/Ibn_Battuta)                              |
+| `miriam-makeba`              | Miriam Makeba              | 1932–2008         | singer, "Mama Africa"                           | Africa (South Africa)        | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Miriam_Makeba)                            |
+| `kofi-annan`                 | Kofi Annan                 | 1938–2018         | UN Secretary-General, Nobel Peace Prize         | Africa (Ghana)               | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Kofi_Annan)                               |
+| `martin-luther-king`         | Martin Luther King Jr.     | 1929–1968         | civil rights movement, "I Have a Dream"         | North America (USA)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Martin_Luther_King_Jr.)                   |
+| `rosa-parks`                 | Rosa Parks                 | 1913–2005         | civil rights, Montgomery bus boycott            | North America (USA)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Rosa_Parks)                               |
+| `frida-kahlo`                | Frida Kahlo                | 1907–1954         | painter                                         | North America (Mexico)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Frida_Kahlo)                              |
+| `benjamin-franklin`          | Benjamin Franklin          | 1706–1790         | electricity, lightning rod, statesman           | North America (USA)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Benjamin_Franklin)                        |
+| `katherine-johnson`          | Katherine Johnson          | 1918–2020         | orbital mechanics at NASA                       | North America (USA)          | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Katherine_Johnson)                        |
+| `grace-hopper`               | Grace Hopper               | 1906–1992         | compilers, COBOL                                | North America (USA)          | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Grace_Hopper)                             |
+| `sequoyah`                   | Sequoyah                   | c. 1770–1843      | Cherokee syllabary                              | North America (Cherokee)     | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Sequoyah)                                 |
+| `simon-bolivar`              | Simón Bolívar              | 1783–1830         | independence of South America                   | South America (Venezuela)    | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Sim%C3%B3n_Bol%C3%ADvar)                  |
+| `gabriela-mistral`           | Gabriela Mistral           | 1889–1957         | poet, Nobel Prize in Literature                 | South America (Chile)        | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Gabriela_Mistral)                         |
+| `alberto-santos-dumont`      | Alberto Santos-Dumont      | 1873–1932         | aviation pioneer                                | South America (Brazil)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Alberto_Santos-Dumont)                    |
+| `david-unaipon`              | David Unaipon              | 1872–1967         | Ngarrindjeri inventor and writer                | Australia                    | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/David_Unaipon)                            |
+| `albert-namatjira`           | Albert Namatjira           | 1902–1959         | Western Arrernte painter                        | Australia                    | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Albert_Namatjira)                         |
+| `howard-florey`              | Howard Florey              | 1898–1968         | penicillin, Nobel Prize in Medicine             | Australia                    | `notionists` | [Wikipedia](https://en.wikipedia.org/wiki/Howard_Florey)                            |
+| `kate-sheppard`              | Kate Sheppard              | 1847–1934         | women's suffrage, 1893                          | Oceania (New Zealand)        | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Kate_Sheppard)                            |
+| `roald-amundsen`             | Roald Amundsen             | 1872–1928         | first to reach the South Pole, 1911             | Antarctica (Norway)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Roald_Amundsen)                           |
+| `ernest-shackleton`          | Ernest Shackleton          | 1874–1922         | Antarctic expeditions, _Endurance_              | Antarctica (Ireland, UK)     | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Ernest_Shackleton)                        |
+
+> The avatars are cartoons, loosely based on well-known portraits, not exact
+> likenesses. Some figures, like Christopher Columbus, are seen very
+> differently today, which can be a good starting point for a discussion.
+
+### All predefined speakers
+
+    @VirtualSpeaker.speaker(confucius)
+    --{{0 UK English Male}}--
+Here you can see all of us at once. Hover over a face to read the id.
+
+All predefined speakers at once, `VirtualSpeaker.preview(id)` draws the
+resting face of any named speaker:
+
+```js
+const html = VirtualSpeaker.presets().map(id => `
+  <img src="${VirtualSpeaker.preview(id)}" title="${id}"
+       style="width:80px; height:80px; margin:4px; border-radius:50%; background:#dfe7ef">`)
+
+document.getElementById('vs-famous').innerHTML = html.join('')
+
+VirtualSpeaker.presets().length + " speakers"
+```
+<script>@input</script>
+
+<div id="vs-famous"></div>
 
 ## Styles
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 Let me introduce you to some other speakers. Every one of them is drawn in
 another DiceBear style. Just step through this slide.
@@ -254,6 +440,7 @@ speaking:
 
 ### Gallery
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 Here you can see all styles at once. Change the seed and run the code again.
 
@@ -313,6 +500,7 @@ VirtualSpeaker.define('playground', {
 
 ## Audio recordings
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 ?[](assets/recording.mp3)
 This text is not spoken by the browser, the recording is played instead.
@@ -331,10 +519,12 @@ This text is not spoken by the browser, the recording is played instead.
 
 ## Video comments
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 !?[](assets/video.mp4)
 This comment comes with a video.
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{1}}--
 And now the avatar is back.
 
@@ -353,6 +543,7 @@ text-to-speech output of the new language. Then, too, the video is shown.
 
 ## Settings
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 Open the settings and check the option to hide the video and avatar comments,
 and I will disappear.
@@ -370,6 +561,7 @@ handle, or double-click it to make it follow the mouse.
 
 ## JavaScript API
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 Speakers can also be changed with a few lines of JavaScript.
 
@@ -380,6 +572,9 @@ VirtualSpeaker.config({
   speakers: { anna: { style: 'micah', seed: 'Anna' } }
 })
 
+// a predefined or named speaker as default
+VirtualSpeaker.config({ default: 'sebastian-zug' })
+
 // add or replace a single speaker
 VirtualSpeaker.define('bob', { style: 'adventurer', seed: 'Bob' })
 
@@ -388,6 +583,10 @@ VirtualSpeaker.styles()
 
 // the resting face as image (data URI)
 VirtualSpeaker.preview('lorelei', 'Mika')
+VirtualSpeaker.preview('confucius')   // of a named or predefined speaker
+
+// the ids of all predefined speakers
+VirtualSpeaker.presets()
 
 // remove and show the avatar again
 VirtualSpeaker.disable()
@@ -407,6 +606,7 @@ lia-dicebear-avatar { --virtual-speaker-background: #fdf6e3; }
 
 ## Building your own avatar
 
+    @VirtualSpeaker.speaker(andre-dietrich)
     --{{0}}--
 This template is only one possible avatar. LiaScript offers a general hook,
 which can be used for other avatars as well.

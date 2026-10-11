@@ -75,6 +75,37 @@ describe('resolve', () => {
   })
 })
 
+describe('presets', () => {
+  it('sebastian-zug is predefined', () => {
+    expect(resolve({ speaker: 'sebastian-zug' })).toMatchObject({
+      style: 'avataaars',
+      name: 'Sebastian Zug',
+    })
+  })
+
+  it('andre-dietrich is predefined', () => {
+    expect(resolve({ speaker: 'andre-dietrich' })).toMatchObject({
+      style: 'avataaars',
+      name: 'André Dietrich',
+    })
+  })
+
+  it('can be used as default speaker', () => {
+    config({ default: 'sebastian-zug' })
+    expect(resolve({ voice: 'Deutsch Male' })).toMatchObject({
+      style: 'avataaars',
+      name: 'Sebastian Zug',
+    })
+  })
+
+  it('can be overridden by a course and survive a reset', () => {
+    define('sebastian-zug', { style: 'micah', seed: 'x' })
+    expect(resolve({ speaker: 'sebastian-zug' }).style).toBe('micah')
+    reset()
+    expect(resolve({ speaker: 'sebastian-zug' }).style).toBe('avataaars')
+  })
+})
+
 describe('subscribe', () => {
   it('is notified on configuration changes', () => {
     const fn = vi.fn()

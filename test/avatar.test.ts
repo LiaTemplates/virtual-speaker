@@ -144,6 +144,18 @@ describe('render', () => {
     expect(render({ style: 'avataaars', seed: 'Mika' }).background).toBeNull()
   })
 
+  it('presets keep their animations', async () => {
+    const { PRESETS } = await import('../src/presets')
+    for (const [id, def] of Object.entries(PRESETS)) {
+      const frames = render(def)
+      expect(frames.mouths, id).toBeGreaterThan(0)
+      // e.g. notionists or pixel-art cannot blink
+      if (FACES[styleName(def.style)!].eyes) {
+        expect(frames.faces.blink, id).toBeDefined()
+      }
+    }
+  })
+
   it('is deterministic and cached', () => {
     const a = render({ style: 'lorelei', seed: 'Anna' })
     const b = render({ style: 'lorelei', seed: 'Anna' })
