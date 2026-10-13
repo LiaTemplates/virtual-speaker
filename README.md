@@ -251,6 +251,16 @@ find me on the fifty dollar note.
 I am Roald Amundsen. In 1911, my team was the first to reach the South Pole.
 Do not forget your warm hat.
 
+    @VirtualSpeaker.speaker(emmeline-pankhurst)
+    --{{8 UK English Female}}--
+I am Emmeline Pankhurst. We fought for the right of women to vote. Deeds, not
+words!
+
+    @VirtualSpeaker.speaker(celestin-freinet)
+    --{{9 French Male}}--
+Bonjour, je suis Célestin Freinet. Dans ma classe, les enfants imprimaient
+leurs propres textes.
+
 These historical figures are predefined and can be used like any other
 speaker, e.g. as guests in a history, science or literature course:
 
@@ -275,6 +285,35 @@ I am Marie Curie, and I won two Nobel Prizes.
 | `wolfgang-amadeus-mozart`    | Wolfgang Amadeus Mozart    | 1756–1791         | composer                                        | Europe (Austria)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart)                  |
 | `sophie-scholl`              | Sophie Scholl              | 1921–1943         | resistance against the Nazis, White Rose        | Europe (Germany)             | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Sophie_Scholl)                            |
 | `emmy-noether`               | Emmy Noether               | 1882–1935         | mathematics, Noether's theorem                  | Europe (Germany)             | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Emmy_Noether)                             |
+| `celestin-freinet`           | Célestin Freinet           | 1896–1966         | school printing press, Freinet pedagogy         | Europe (France)              | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/C%C3%A9lestin_Freinet)                    |
+| `maria-montessori`           | Maria Montessori           | 1870–1952         | Montessori education                            | Europe (Italy)               | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Maria_Montessori)                         |
+| `john-amos-comenius`         | John Amos Comenius         | 1592–1670         | father of modern education, _Orbis Pictus_      | Europe (Moravia, Czechia)    | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/John_Amos_Comenius)                       |
+| `johann-heinrich-pestalozzi` | Johann Heinrich Pestalozzi | 1746–1827         | education with head, heart and hand             | Europe (Switzerland)         | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Johann_Heinrich_Pestalozzi)               |
+| `alan-turing`                | Alan Turing                | 1912–1954         | Turing machine, computer science                | Europe (England)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Alan_Turing)                              |
+| `carl-friedrich-gauss`       | Carl Friedrich Gauss       | 1777–1855         | mathematics, normal distribution                | Europe (Germany)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss)                     |
+| `leonhard-euler`             | Leonhard Euler             | 1707–1783         | mathematics, Euler's number _e_                 | Europe (Switzerland, Russia) | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Leonhard_Euler)                           |
+| `konrad-zuse`                | Konrad Zuse                | 1910–1995         | Z3, first programmable computer                 | Europe (Germany)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Konrad_Zuse)                              |
+| `socrates`                   | Socrates                   | c. 470–399 BC     | philosopher, Socratic method                    | Europe (Greece)              | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Socrates)                                 |
+| `immanuel-kant`              | Immanuel Kant              | 1724–1804         | philosopher, _Critique of Pure Reason_          | Europe (Prussia)             | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Immanuel_Kant)                            |
+| `gregor-mendel`              | Gregor Mendel              | 1822–1884         | laws of heredity, pea plants                    | Europe (Austria, Czechia)    | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Gregor_Mendel)                            |
+| `dmitri-mendeleev`           | Dmitri Mendeleev           | 1834–1907         | periodic table                                  | Europe (Russia)              | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Dmitri_Mendeleev)                         |
+| `alexander-von-humboldt`     | Alexander von Humboldt     | 1769–1859         | naturalist and explorer                         | Europe (Germany)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Alexander_von_Humboldt)                   |
+| `florence-nightingale`       | Florence Nightingale       | 1820–1910         | modern nursing, statistics                      | Europe (England)             | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Florence_Nightingale)                     |
+| `william-shakespeare`        | William Shakespeare        | 1564–1616         | playwright, _Hamlet_                            | Europe (England)             | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/William_Shakespeare)                      |
+| `ludwig-van-beethoven`       | Ludwig van Beethoven       | 1770–1827         | composer, _Ninth Symphony_                      | Europe (Germany, Austria)    | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Ludwig_van_Beethoven)                     |
+| `lise-meitner`               | Lise Meitner               | 1878–1968         | nuclear fission                                 | Europe (Austria, Sweden)     | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Lise_Meitner)                             |
+| `rosalind-franklin`          | Rosalind Franklin          | 1920–1958         | X-ray images of DNA                             | Europe (England)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Rosalind_Franklin)                        |
+| `caroline-herschel`          | Caroline Herschel          | 1750–1848         | astronomer, comets                              | Europe (Germany, England)    | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Caroline_Herschel)                        |
+| `maria-sibylla-merian`       | Maria Sibylla Merian       | 1647–1717         | naturalist, metamorphosis of butterflies        | Europe (Germany)             | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Maria_Sibylla_Merian)                     |
+| `mary-anning`                | Mary Anning                | 1799–1847         | fossil hunter, ichthyosaurs                     | Europe (England)             | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Mary_Anning)                              |
+| `dorothy-hodgkin`            | Dorothy Hodgkin            | 1910–1994         | X-ray crystallography, Nobel Prize 1964         | Europe (England)             | `notionists` | [Wikipedia](https://en.wikipedia.org/wiki/Dorothy_Hodgkin)                          |
+| `sofya-kovalevskaya`         | Sofya Kovalevskaya         | 1850–1891         | first woman with a doctorate in mathematics     | Europe (Russia, Sweden)      | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Sofya_Kovalevskaya)                       |
+| `olympe-de-gouges`           | Olympe de Gouges           | 1748–1793         | _Declaration of the Rights of Woman_            | Europe (France)              | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Olympe_de_Gouges)                         |
+| `mary-wollstonecraft`        | Mary Wollstonecraft        | 1759–1797         | _A Vindication of the Rights of Woman_          | Europe (England)             | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Mary_Wollstonecraft)                      |
+| `emmeline-pankhurst`         | Emmeline Pankhurst         | 1858–1928         | suffragettes, votes for women                   | Europe (England)             | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Emmeline_Pankhurst)                       |
+| `clara-zetkin`               | Clara Zetkin               | 1857–1933         | International Women's Day                       | Europe (Germany)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Clara_Zetkin)                             |
+| `elisabeth-selbert`          | Elisabeth Selbert          | 1896–1986         | equal rights in the German Basic Law            | Europe (Germany)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Elisabeth_Selbert)                        |
+| `simone-de-beauvoir`         | Simone de Beauvoir         | 1908–1986         | philosopher, _The Second Sex_                   | Europe (France)              | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Simone_de_Beauvoir)                       |
 | `confucius`                  | Confucius                  | 551–479 BC        | philosopher and teacher                         | Asia (China)                 | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Confucius)                                |
 | `mahatma-gandhi`             | Mahatma Gandhi             | 1869–1948         | non-violent independence movement               | Asia (India)                 | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Mahatma_Gandhi)                           |
 | `murasaki-shikibu`           | Murasaki Shikibu           | c. 973–c. 1014    | novelist, _The Tale of Genji_                   | Asia (Japan)                 | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Murasaki_Shikibu)                         |
@@ -283,6 +322,13 @@ I am Marie Curie, and I won two Nobel Prizes.
 | `zheng-he`                   | Zheng He                   | 1371–1433         | admiral, treasure voyages                       | Asia (China)                 | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Zheng_He)                                 |
 | `rabindranath-tagore`        | Rabindranath Tagore        | 1861–1941         | poet, Nobel Prize in Literature                 | Asia (India)                 | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Rabindranath_Tagore)                      |
 | `al-khwarizmi`               | Al-Khwarizmi               | c. 780–c. 850     | algebra, the word "algorithm"                   | Asia (Persia, Baghdad)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Al-Khwarizmi)                             |
+| `chien-shiung-wu`            | Chien-Shiung Wu            | 1912–1997         | physics, Wu experiment                          | Asia (China, USA)            | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Chien-Shiung_Wu)                          |
+| `maryam-mirzakhani`          | Maryam Mirzakhani          | 1977–2017         | first woman to win the Fields Medal             | Asia (Iran)                  | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Maryam_Mirzakhani)                        |
+| `janaki-ammal`               | Janaki Ammal               | 1897–1984         | botanist, sugarcane and eggplant                | Asia (India)                 | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/E._K._Janaki_Ammal)                       |
+| `katsushika-hokusai`         | Katsushika Hokusai         | c. 1760–1849      | painter, _The Great Wave off Kanagawa_          | Asia (Japan)                 | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Hokusai)                                  |
+| `subrahmanyan-chandrasekhar` | Subrahmanyan Chandrasekhar | 1910–1995         | astrophysics, Nobel Prize in Physics            | Asia (India, USA)            | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Subrahmanyan_Chandrasekhar)               |
+| `savitribai-phule`           | Savitribai Phule           | 1831–1897         | girls' education, women's rights                | Asia (India)                 | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Savitribai_Phule)                         |
+| `kartini`                    | Kartini                    | 1879–1904         | women's education                               | Asia (Indonesia)             | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Kartini)                                  |
 | `nelson-mandela`             | Nelson Mandela             | 1918–2013         | end of apartheid, president                     | Africa (South Africa)        | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Nelson_Mandela)                           |
 | `wangari-maathai`            | Wangari Maathai            | 1940–2011         | Green Belt Movement, Nobel Peace Prize          | Africa (Kenya)               | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Wangari_Maathai)                          |
 | `hypatia`                    | Hypatia                    | c. 360–415        | mathematics, astronomy                          | Africa (Alexandria, Egypt)   | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Hypatia)                                  |
@@ -290,6 +336,11 @@ I am Marie Curie, and I won two Nobel Prizes.
 | `ibn-battuta`                | Ibn Battuta                | 1304–1368/69      | traveller, _Rihla_                              | Africa (Morocco)             | `notionists` | [Wikipedia](https://en.wikipedia.org/wiki/Ibn_Battuta)                              |
 | `miriam-makeba`              | Miriam Makeba              | 1932–2008         | singer, "Mama Africa"                           | Africa (South Africa)        | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Miriam_Makeba)                            |
 | `kofi-annan`                 | Kofi Annan                 | 1938–2018         | UN Secretary-General, Nobel Peace Prize         | Africa (Ghana)               | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Kofi_Annan)                               |
+| `ibn-khaldun`                | Ibn Khaldun                | 1332–1406         | historian, _Muqaddimah_                         | Africa (Tunisia)             | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Ibn_Khaldun)                              |
+| `chinua-achebe`              | Chinua Achebe              | 1930–2013         | novelist, _Things Fall Apart_                   | Africa (Nigeria)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Chinua_Achebe)                            |
+| `funmilayo-ransome-kuti`     | Funmilayo Ransome-Kuti     | 1900–1978         | women's rights, Abeokuta Women's Union          | Africa (Nigeria)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Funmilayo_Ransome-Kuti)                   |
+| `huda-shaarawi`              | Huda Sha'arawi             | 1879–1947         | Egyptian Feminist Union                         | Africa (Egypt)               | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Huda_Sha%27arawi)                         |
+| `grace-alele-williams`       | Grace Alele-Williams       | 1932–2022         | first Nigerian woman with a PhD in mathematics  | Africa (Nigeria)             | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Grace_Alele-Williams)                     |
 | `martin-luther-king`         | Martin Luther King Jr.     | 1929–1968         | civil rights movement, "I Have a Dream"         | North America (USA)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Martin_Luther_King_Jr.)                   |
 | `rosa-parks`                 | Rosa Parks                 | 1913–2005         | civil rights, Montgomery bus boycott            | North America (USA)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Rosa_Parks)                               |
 | `frida-kahlo`                | Frida Kahlo                | 1907–1954         | painter                                         | North America (Mexico)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Frida_Kahlo)                              |
@@ -297,13 +348,24 @@ I am Marie Curie, and I won two Nobel Prizes.
 | `katherine-johnson`          | Katherine Johnson          | 1918–2020         | orbital mechanics at NASA                       | North America (USA)          | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Katherine_Johnson)                        |
 | `grace-hopper`               | Grace Hopper               | 1906–1992         | compilers, COBOL                                | North America (USA)          | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Grace_Hopper)                             |
 | `sequoyah`                   | Sequoyah                   | c. 1770–1843      | Cherokee syllabary                              | North America (Cherokee)     | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Sequoyah)                                 |
+| `nikola-tesla`               | Nikola Tesla               | 1856–1943         | alternating current                             | North America (USA)          | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Nikola_Tesla)                             |
+| `susan-b-anthony`            | Susan B. Anthony           | 1820–1906         | women's suffrage                                | North America (USA)          | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Susan_B._Anthony)                         |
+| `sojourner-truth`            | Sojourner Truth            | c. 1797–1883      | abolition, "Ain't I a Woman?"                   | North America (USA)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Sojourner_Truth)                          |
+| `rachel-carson`              | Rachel Carson              | 1907–1964         | _Silent Spring_, environmental movement         | North America (USA)          | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Rachel_Carson)                            |
+| `hedy-lamarr`                | Hedy Lamarr                | 1914–2000         | actress, frequency hopping                      | North America (Austria, USA) | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Hedy_Lamarr)                              |
 | `simon-bolivar`              | Simón Bolívar              | 1783–1830         | independence of South America                   | South America (Venezuela)    | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Sim%C3%B3n_Bol%C3%ADvar)                  |
 | `gabriela-mistral`           | Gabriela Mistral           | 1889–1957         | poet, Nobel Prize in Literature                 | South America (Chile)        | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Gabriela_Mistral)                         |
 | `alberto-santos-dumont`      | Alberto Santos-Dumont      | 1873–1932         | aviation pioneer                                | South America (Brazil)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Alberto_Santos-Dumont)                    |
+| `paulo-freire`               | Paulo Freire               | 1921–1997         | _Pedagogy of the Oppressed_                     | South America (Brazil)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Paulo_Freire)                             |
+| `pablo-neruda`               | Pablo Neruda               | 1904–1973         | poet, Nobel Prize in Literature                 | South America (Chile)        | `micah`      | [Wikipedia](https://en.wikipedia.org/wiki/Pablo_Neruda)                             |
+| `machado-de-assis`           | Machado de Assis           | 1839–1908         | novelist, _Dom Casmurro_                        | South America (Brazil)       | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Machado_de_Assis)                         |
+| `bertha-lutz`                | Bertha Lutz                | 1894–1976         | biologist, women's suffrage in Brazil           | South America (Brazil)       | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Bertha_Lutz)                              |
 | `david-unaipon`              | David Unaipon              | 1872–1967         | Ngarrindjeri inventor and writer                | Australia                    | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/David_Unaipon)                            |
 | `albert-namatjira`           | Albert Namatjira           | 1902–1959         | Western Arrernte painter                        | Australia                    | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Albert_Namatjira)                         |
 | `howard-florey`              | Howard Florey              | 1898–1968         | penicillin, Nobel Prize in Medicine             | Australia                    | `notionists` | [Wikipedia](https://en.wikipedia.org/wiki/Howard_Florey)                            |
 | `kate-sheppard`              | Kate Sheppard              | 1847–1934         | women's suffrage, 1893                          | Oceania (New Zealand)        | `lorelei`    | [Wikipedia](https://en.wikipedia.org/wiki/Kate_Sheppard)                            |
+| `apirana-ngata`              | Āpirana Ngata              | 1874–1950         | Māori politician and scholar                    | Oceania (New Zealand)        | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/%C4%80pirana_Ngata)                       |
+| `whina-cooper`               | Whina Cooper               | 1895–1994         | Māori land rights, land march of 1975           | Oceania (New Zealand)        | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Whina_Cooper)                             |
 | `roald-amundsen`             | Roald Amundsen             | 1872–1928         | first to reach the South Pole, 1911             | Antarctica (Norway)          | `avataaars`  | [Wikipedia](https://en.wikipedia.org/wiki/Roald_Amundsen)                           |
 | `ernest-shackleton`          | Ernest Shackleton          | 1874–1922         | Antarctic expeditions, _Endurance_              | Antarctica (Ireland, UK)     | `toon-head`  | [Wikipedia](https://en.wikipedia.org/wiki/Ernest_Shackleton)                        |
 
@@ -325,13 +387,13 @@ const html = VirtualSpeaker.presets().map(id => `
   <img src="${VirtualSpeaker.preview(id)}" title="${id}"
        style="width:80px; height:80px; margin:4px; border-radius:50%; background:#dfe7ef">`)
 
-document.getElementById('vs-famous').innerHTML = html.join('')
+console.html(`<div style="display:flex; flex-wrap:wrap; white-space:normal">
+  ${html.join('')}
+</div>`)
 
 VirtualSpeaker.presets().length + " speakers"
 ```
 <script>@input</script>
-
-<div id="vs-famous"></div>
 
 ## Styles
 
@@ -456,13 +518,13 @@ const html = VirtualSpeaker.styles().map(style => `
     <figcaption><code>${style}</code></figcaption>
   </figure>`)
 
-document.getElementById('vs-gallery').innerHTML = html.join('')
+console.html(`<div style="display:flex; flex-wrap:wrap; white-space:normal">
+  ${html.join('')}
+</div>`)
 
 "gallery with the seed " + seed
 ```
 <script>@input</script>
-
-<div id="vs-gallery"></div>
 
 ### Playground
 
