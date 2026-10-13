@@ -1,7 +1,7 @@
 <!--
 author:   André Dietrich
 email:    LiaScript@web.de
-version:  0.1.0
+version:  0.1.1
 language: en
 narrator: US English Male
 
@@ -52,7 +52,7 @@ Import via:
 
 or use a fixed version:
 
-`import: https://raw.githubusercontent.com/LiaTemplates/virtual-speaker/0.1.0/README.md`
+`import: https://raw.githubusercontent.com/LiaTemplates/virtual-speaker/0.1.1/README.md`
 
 ## The default speaker
 
